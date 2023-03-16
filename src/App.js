@@ -38,7 +38,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<UsersList data={data.list} />} />
-          <Route path="/user-details" element={<UserDetails />} />
+          <Route path="/:id" element={<UserDetails />} />
         </Routes>
         <button onClick={handleScroll}>Load More</button>
       </div>
