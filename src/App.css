@@ -2,3 +2,25 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+.grid-container {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+.grid-item {
+  display: block;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.grid-item img {
+  width: 100%;
+}
+
+.grid-item-description {
+  padding: 10px;
+}
