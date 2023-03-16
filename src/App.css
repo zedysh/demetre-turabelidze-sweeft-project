@@ -7,12 +7,10 @@
   width: 80%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 2fr);
 }
 
-
 .grid-item {
-  display: block;
   margin: 10px;
   border: 1px solid black;
 }
