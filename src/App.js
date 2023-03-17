@@ -8,9 +8,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState({ list: [] });
 
-  async function fetchData(currentPage) {
+  async function fetchData() {
     const response = await fetch(
-      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${currentPage}/${16}`
+      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${currentPage}/4`
     );
     const newData = await response.json();
     return newData;

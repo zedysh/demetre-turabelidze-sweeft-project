@@ -2,11 +2,12 @@ import React from "react";
 import User from "./User";
 
 function UsersList(props) {
-  console.log(props.data);
+  const { onUserClicked } = props;
+
   return (
     <div className="grid-container">
       {props.data.map((userData) => (
-        <User userData={userData} />
+        <User userData={userData} id={props.id} onUserClicked={onUserClicked} />
       ))}
     </div>
   );

@@ -5,9 +5,15 @@ function User(props) {
   const navigate = useNavigate();
 
   const { id, name, lastName, prefix, title, imageUrl } = props.userData;
+  const { onUserClicked } = props;
+
+  const handleClick = () => {
+    navigate(`/user/${id}`);
+    if (onUserClicked) onUserClicked();
+  };
 
   return (
-    <div className="grid-item" onClick={() => navigate(`/user/${id}`)} key={id}>
+    <div className="grid-item" onClick={handleClick} key={id}>
       <img src={`${imageUrl}?=v${id}`} alt="Person" />
       <div className="grid-item-description">
         <h3>{`${prefix} ${name} ${lastName}`}</h3>

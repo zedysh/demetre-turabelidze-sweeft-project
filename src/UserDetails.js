@@ -14,11 +14,10 @@ function UserDetails() {
     )
       .then((response) => response.json())
       .then((data) => setSingleUserData(data));
+    console.log(`fetcing details for user ${id}`);
   }, [id]);
 
   if (!singleUserData) return;
-
-  console.log(singleUserData);
 
   return (
     <div className="single-user-data-container">
