@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
 }
 
 .grid-container {
@@ -14,8 +17,6 @@
   margin: 10px;
   border: 1px solid #ccc;
   cursor: pointer;
-  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .grid-item h3,
@@ -29,4 +30,51 @@ p {
 
 .grid-item-description {
   padding: 8px;
+}
+
+.user-details-container {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.user-details-container p span {
+  font-size: 16px;
+}
+
+.user-details-container > header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.user-details-container img {
+  height: 200px;
+}
+
+.user-details-container > fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: rgb(192, 192, 192);
+  border-image: initial;
+}
+
+.left-info {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 70%;
+  padding: 6px 12px 10px;
+}
+
+.contact-info-container {
+  margin-top: 20px;
 }
