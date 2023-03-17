@@ -6,8 +6,12 @@
   font-size: 16px;
 }
 
-.grid-container {
+.landing-page-container {
   width: 60%;
+  margin: auto;
+}
+
+.grid-container {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 2fr);

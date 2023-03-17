@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
-import UsersList from "./UsersList";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
 import UserDetails from "./UserDetails";
 import "./App.css";
 
@@ -37,8 +37,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<UsersList data={data.list} />} />
-          <Route path="/:id" element={<UserDetails />} />
+          <Route path="/" element={<LandingPage data={data.list} />} />
+          <Route path="/user/:id" element={<UserDetails />} />
         </Routes>
         <button onClick={handleScroll}>Load More</button>
       </div>

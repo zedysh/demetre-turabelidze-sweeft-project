@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import UsersList from "./UsersList";
 
 function FriendList(props) {
-  const [friendList, setFriendList] = useState([]);
+  const [friendList, setFriendList] = useState(undefined);
   const { id } = props;
 
   useEffect(() => {
@@ -10,20 +11,15 @@ function FriendList(props) {
     )
       .then((response) => response.json())
       .then((data) => setFriendList(data));
-  }, []);
+  }, [id]);
 
   if (!friendList) return;
-  console.log(friendList.list);
 
   return (
-    <div>
+    <>
       <h2 className="friends-title">Friends: </h2>
-      <div className="friend-list-container">
-        {friendList.list.map((friend) => (
-          <p>{friend.name}</p>
-        ))}
-      </div>
-    </div>
+      <UsersList data={friendList.list} />
+    </>
   );
 }
 

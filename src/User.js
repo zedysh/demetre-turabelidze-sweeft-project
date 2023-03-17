@@ -7,7 +7,7 @@ function User(props) {
   const { id, name, lastName, prefix, title, imageUrl } = props.userData;
 
   return (
-    <div className="grid-item" onClick={() => navigate(`${id}`)} key={id}>
+    <div className="grid-item" onClick={() => navigate(`/user/${id}`)} key={id}>
       <img src={`${imageUrl}?=v${id}`} alt="Person" />
       <div className="grid-item-description">
         <h3>{`${prefix} ${name} ${lastName}`}</h3>

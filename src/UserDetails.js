@@ -14,7 +14,7 @@ function UserDetails() {
     )
       .then((response) => response.json())
       .then((data) => setSingleUserData(data));
-  }, []);
+  }, [id]);
 
   if (!singleUserData) return;
 
