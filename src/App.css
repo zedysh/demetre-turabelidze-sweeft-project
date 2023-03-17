@@ -32,7 +32,7 @@ p {
   padding: 8px;
 }
 
-.user-details-container {
+.single-user-data-container {
   width: 60%;
   margin: 0 auto;
   border: 1px solid #ccc;
@@ -77,4 +77,9 @@ p {
 
 .contact-info-container {
   margin-top: 20px;
+}
+
+.friends-title {
+  margin-left: 20px;
+  font-size: 24px;
 }
