@@ -3,12 +3,15 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function User(props) {
   const navigate = useNavigate();
+
+  const { id, name, lastName, prefix, title, imageUrl } = props.userData;
+
   return (
-    <div className="grid-item" onClick={() => navigate(`${props.userData.id}`)} key = {props.userData.id}>
-      <img src={props.userData.imageUrl} alt="Person" />
+    <div className="grid-item" onClick={() => navigate(`${id}`)} key={id}>
+      <img src={`${imageUrl}?=v${id}`} alt="Person" />
       <div className="grid-item-description">
-        <h3>{`${props.userData.prefix} ${props.userData.name} ${props.userData.lastName}`}</h3>
-        <p>{props.userData.title}</p>
+        <h3>{`${prefix} ${name} ${lastName}`}</h3>
+        <p>{title}</p>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import UsersList from "./UsersList";
 import UserDetails from "./UserDetails";
 import "./App.css";
@@ -10,7 +10,7 @@ function App() {
 
   async function fetchData(currentPage) {
     const response = await fetch(
-      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${currentPage}/${12}`
+      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${currentPage}/${16}`
     );
     const newData = await response.json();
     return newData;
