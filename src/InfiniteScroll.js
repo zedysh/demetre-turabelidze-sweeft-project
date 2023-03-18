@@ -18,11 +18,11 @@ export function InfiniteScroll({ fetchData, loading, setLoading, children }) {
   }, [loading]);
 
   useEffect(() => {
-    // Simulation that fetching new data takes around 3 seconds
+    // Simulation that fetching new data takes around 1 seconds
     // This is so that we can see loading text in action
     setTimeout(() => {
       fetchData(page);
-    }, 3000);
+    }, 1000);
   }, [page]);
 
   const handleScroll = () => {
