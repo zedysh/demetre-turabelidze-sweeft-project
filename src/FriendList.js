@@ -40,7 +40,7 @@ function FriendList(props) {
   return (
     <>
       <h2 className="friends-title">Friends: </h2>
-      <UsersList data={friendList.list} id={id} onUserClicked={onUserClicked} />
+      <UsersList data={friendList.list} id={id} onUserClicked={onUserClicked} handleHistoryChange={props.handleHistoryChange}/>
       <button onClick={handleScroll}>Load More</button>
     </>
   );

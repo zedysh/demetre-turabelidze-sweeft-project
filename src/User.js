@@ -5,11 +5,12 @@ function User(props) {
   const navigate = useNavigate();
 
   const { id, name, lastName, prefix, title, imageUrl } = props.userData;
-  const { onUserClicked } = props;
+  const { onUserClicked, handleHistoryChange } = props;
 
   const handleClick = () => {
     navigate(`/user/${id}`);
     if (onUserClicked) onUserClicked();
+    if (handleHistoryChange) handleHistoryChange(id, `${prefix} ${name} ${lastName}`);
   };
 
   return (

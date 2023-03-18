@@ -7,7 +7,7 @@
 }
 
 .landing-page-container {
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
@@ -37,7 +37,7 @@ p {
 }
 
 .single-user-data-container {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   border: 1px solid #ccc;
 }
@@ -86,4 +86,27 @@ p {
 .friends-title {
   margin-left: 20px;
   font-size: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 2fr);
+  }
+  .user-details-container > header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .left-info, .right-info {
+    width: 100%
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 2fr);
+  }
 }

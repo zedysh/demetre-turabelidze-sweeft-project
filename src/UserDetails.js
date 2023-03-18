@@ -7,6 +7,7 @@ function UserDetails() {
   let { id } = useParams();
 
   const [singleUserData, setSingleUserData] = useState(null);
+  const [navigationHistory, setNavigationHistory] = useState([])
 
   useEffect(() => {
     fetch(
@@ -17,12 +18,22 @@ function UserDetails() {
     console.log(`fetcing details for user ${id}`);
   }, [id]);
 
+
+  function handleHistoryChange(id, name){
+    setNavigationHistory(prevNavigationHistory => {
+      return(
+        [...prevNavigationHistory, {id: id, name: name}]
+      )
+    })
+    console.log(navigationHistory)
+  }
+
   if (!singleUserData) return;
 
   return (
     <div className="single-user-data-container">
       <Header singleUserData={singleUserData} />
-      <FriendList id={id} />
+      <FriendList id={id} handleHistoryChange={handleHistoryChange}/>
     </div>
   );
 }
