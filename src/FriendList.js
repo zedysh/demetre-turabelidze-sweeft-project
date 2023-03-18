@@ -1,59 +1,50 @@
 import React, { useState, useEffect } from "react";
+import { InfiniteScroll } from "./InfiniteScroll";
 import UsersList from "./UsersList";
 
 function FriendList(props) {
   const { id } = props;
-  const [currentPage, setCurrentPage] = useState(1);
   const [friendList, setFriendList] = useState({ list: [] });
+  const [loading, setLoading] = useState(false);
 
-  async function fetchData() {
+  async function fetchData(currentPage = 1, userAmount = 20) {
     const response = await fetch(
-      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}/friends/${currentPage}/2`
+      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}/friends/${currentPage}/${userAmount}`
     );
     const newData = await response.json();
+    setLoading(false);
+
+    setFriendList((prevData) => {
+      return {
+        list: [...prevData.list, ...newData.list],
+      };
+    });
     return newData;
   }
 
   /**
-   * This function loads friendlist data and can optionally
-   * append or not append to current data
+   * This function loads initial friendList data
    */
-  async function loadData(append = true) {
-    const newData = await fetchData(currentPage);
-    setFriendList((prevData) => {
-      const prevDataList = append ? prevData.list : [];
-      return {
-        pagination: newData.pagination,
-        list: [...prevDataList, ...newData.list],
-      };
-    });
+  async function loadInitialData() {
+    const newData = await fetchData(1);
+    setFriendList({ list: [...newData.list] });
   }
 
-  // if id changes, fetch new friendlist and do not append
+  // if id changes, load initial data.
   useEffect(() => {
-    loadData(false);
+    loadInitialData();
   }, [id]);
-
-  // if current page changes, append new data
-  // don't fetch if current page is 1 (first useEffect has fetched initial data)
-  useEffect(() => {
-    if (currentPage === 1) return;
-    loadData(true);
-  }, [currentPage]);
-
-  function handleScroll() {
-    setCurrentPage((prevPage) => prevPage + 1);
-  }
 
   return (
     <>
       <h2 className="friends-title">Friends: </h2>
-      <UsersList
-        data={friendList.list}
-        id={id}
-        handleHistoryChange={props.handleHistoryChange}
-      />
-      <button onClick={handleScroll}>Load More</button>
+      <InfiniteScroll
+        fetchData={fetchData}
+        loading={loading}
+        setLoading={setLoading}
+      >
+        <UsersList data={friendList} id={id} />
+      </InfiniteScroll>
     </>
   );
 }

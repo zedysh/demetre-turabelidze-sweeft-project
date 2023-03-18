@@ -88,6 +88,16 @@ p {
   font-size: 24px;
 }
 
+.previous-searches {
+  margin: 20px;
+}
+
+.loading {
+  font-size: 40px;
+  text-align: center;
+  padding: 50px;
+}
+
 @media screen and (max-width: 1024px) {
   .grid-container {
     grid-template-columns: repeat(2, 2fr);

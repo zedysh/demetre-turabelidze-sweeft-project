@@ -6,7 +6,7 @@ function UsersList(props) {
 
   return (
     <div className="grid-container">
-      {props.data.map((userData, index) => (
+      {props.data.list.map((userData, index) => (
         <User
           userData={userData}
           id={props.id}
