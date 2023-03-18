@@ -7,7 +7,13 @@ function UsersList(props) {
   return (
     <div className="grid-container">
       {props.data.map((userData, index) => (
-        <User userData={userData} id={props.id} onUserClicked={onUserClicked} key={index} handleHistoryChange={handleHistoryChange}/>
+        <User
+          userData={userData}
+          id={props.id}
+          onUserClicked={onUserClicked}
+          key={index}
+          handleHistoryChange={handleHistoryChange}
+        />
       ))}
     </div>
   );

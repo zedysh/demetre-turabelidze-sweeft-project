@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import UserDetails from "./UserDetails";
 import "./App.css";
+import FriendHistoryProvider from "./FriendHistoryContext";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState({ list: [] });
+  const [visitedUrls, setVisitedUrls] = useState([]);
 
-  async function fetchData() {
+  async function fetchData(currentPage = 1, userAmount = 16) {
     const response = await fetch(
-      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${currentPage}/4`
+      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${currentPage}/${userAmount}`
     );
     const newData = await response.json();
     return newData;
@@ -34,15 +36,20 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<LandingPage data={data.list} />} />
-          <Route path="/user/:id" element={<UserDetails />} />
-        </Routes>
-        <button onClick={handleScroll}>Load More</button>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<LandingPage data={data.list} />} />
+        <Route
+          path="/user/:id"
+          element={
+            <FriendHistoryProvider>
+              <UserDetails />
+            </FriendHistoryProvider>
+          }
+        />
+      </Routes>
+      <button onClick={handleScroll}>Load More</button>
+    </div>
   );
 }
 

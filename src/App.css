@@ -99,11 +99,11 @@ p {
     gap: 20px;
   }
 
-  .left-info, .right-info {
-    width: 100%
+  .left-info,
+  .right-info {
+    width: 100%;
   }
 }
-
 
 @media screen and (max-width: 640px) {
   .grid-container {
